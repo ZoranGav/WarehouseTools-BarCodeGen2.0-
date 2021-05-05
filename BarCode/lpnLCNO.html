@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" media="all" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="all" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LPN</title>
+</head>
+
+<body>
+    <a class="waves-effect waves-light btn-small red" href="help/lpngen.pdf" target="_blank">Help</a>
+    <header>
+        <h1 class="center-align"><a href="index.html"><img src="img/image823.png" alt="logo"></a></h1>
+        <h2 class="center-align">LPN GEN</h2>
+    </header>
+    <main>
+        <div class="container">
+            <div>
+                <form class="center-align" action="lpnresLCNO.html" method="get" target="_blank">
+                    <label for="lpnfrom">Od kog broja bi trebalo da pocnu nalepnice</label>
+                    <input type="number" id="lpnfrom" name="lpnfrom" placeholder="ex: 1, 8787, 10023, 67.." required>
+                    <br>
+                    <br>
+                    <label for="lpnnumber">Unesite broj nalepnica koji je potreban</label><br>
+                    <input type="number" id="lpnnumber" name="lpnnumber" placeholder="ex: 3, 10, 20, 100..." required>
+                    <br>
+                    <input class="waves-effect waves-light btn" type="submit" name="button" value="Generate">
+                </form>
+                <h1 id="vrednost"></h1>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="js/lpnLCNO.js"></script>
+</body>
+</html>

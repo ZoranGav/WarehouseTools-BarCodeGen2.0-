@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" media="all" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="all" />
+
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BarCodeGen</title>
+</head>
+
+<body>
+  <a class="waves-effect waves-light btn-small red" href="help/barkodegen.pdf" target="_blank">Help</a>
+  <header>
+    <h1 class="center-align"><a href="index.html"><img src="img/image823.png" alt="logo"></a></h1>
+    <h2 class="center-align">BarCodeGen</h2>
+  </header>
+  <main>
+    <div>
+      <div class="container">
+        <form class="center-align" action="result.html" target="_blank" method="GET">
+          <br>
+
+          <label for="lotcode">Lot kod(uneti lotkod koji se nalazi na nalepnici artikla):</label><br>
+          <input type="number" id="lotcode" name="lotcode" maxlength="10" minlength="10"
+            placeholder="ex: 8787, 10056, 23..." required>
+          <br>
+
+          <label for="weight">Tezina kutije u kilogramima:</label><br>
+          <input type="number" step=".01" id="weight" name="weight" placeholder="ex: 1.56(stavlja se tacka umesto zareza)" required>
+          <br>
+
+          <div class="row">
+            <label>Izaberite smenu</label>
+            <select class="browser-default" id="shiftid" name="shiftid" required>
+              <option value="" disabled selected>Smena</option>
+              <option value="S1">Smena 1</option>
+              <option value="S2">Smena 2</option>
+              <option value="S3">Smena 3</option>
+            </select>
+          </div>
+
+          <label for="productiondate">Datum proizvodnje:</label>
+          <input type="date" id="productiondate" name="productiondate" required>
+          <br>
+
+          <label for="expdate">Datum isteka:</label>
+          <input type="date" id="expdate" name="expdate" required >
+          <br>
+
+
+          <input class="waves-effect waves-light btn" type="submit" name="button" value="Generate">
+          </form>
+
+          <form class="right-align" action="rocnost.html" onclick="" method="post" target="_blank">
+            <br>
+            <input class="waves-effect waves-light btn-small red" type="submit" name="button" value="Izracunavanje rocnosti">
+          </form>
+
+      </div>
+    </div>
+  </main>
+
+
+
+</body>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+
+</html>

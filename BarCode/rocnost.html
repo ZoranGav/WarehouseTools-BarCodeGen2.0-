@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" media="all" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="all" />
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rocnost</title>
+</head>
+
+<body>
+    <a class="waves-effect waves-light btn-small red" href="help/rocnost.pdf" target="_blank">Help</a>
+    <header>
+        <h1 class="center-align"><a href="#"><img src="img/image823.png" alt="logo"></a></h1>
+        <h2 class="center-align">Rocnost</h2>
+    </header>
+    <main>
+        <div class="container">
+            <div>
+                <form class="center-align" action="" method="get">
+                    <label for="productionDate">Unesite datum proizvodnje artikla</label><br>
+                    <input type="date" id="productionDate" name="productionDate" >
+                    <br>
+                    <label for="daysBetween">Unesite dane rocnosti</label><br>
+                    <input type="number" id="daysBetween" name="daysBetween" >
+                    <br>
+                    <label for="endDate">Unesite datum isteka artikla</label><br>
+                    <input type="date" id="endDate" name="endDate" >
+                    <br>
+                    <input class="waves-effect waves-light btn" type="" onclick="myFunction();" name="button" value="Generate">
+                    <br>
+                    <br>
+                    <br>
+                    <p class="center-align"><h3 id="brpaleta">Artikal je u roku izmedju datuma:<p id="razlika"></p></h3></p>
+                    <h3 id="rezultat"></h3>
+                </form>
+            </div>
+        </div>
+    </main> 
+</body>
+
+<script type="text/javascript">
+
+/*DON'T ASK...*/
+function myFunction(){
+    
+        let pDate = new Date(document.getElementById("productionDate").value);
+        let eDate = new Date(document.getElementById("endDate").value);
+        let bDays = document.getElementById("daysBetween").value;
+        
+        if (!isNaN(pDate) && !isNaN(eDate)) {
+
+            let theDate =  eDate - pDate;
+            let formatedDate = theDate / (1000 * 60 * 60 * 24);
+            document.getElementById("brpaleta").innerHTML = `Artikal je ${formatedDate} dana u roku.`;
+            console.log(formatedDate);
+
+        }
+        else if(!isNaN(bDays) && !isNaN(eDate)){
+            let theDate = new Date(new Date(eDate) - (bDays * 24 * 60 * 60 * 1000));
+            let originalDate = (eDate.getMonth() + 1) + "/" + eDate.getDate() + "/" + eDate.getFullYear();
+            let formatedDate = (theDate.getMonth() + 1) + "/" + theDate.getDate() + "/" + theDate.getFullYear();
+            document.getElementById("rezultat").innerHTML = `${formatedDate} --> ${originalDate}`;
+            console.log(formatedDate);
+        }
+        else if (!isNaN(pDate) && !isNaN(bDays)) {
+            let theDate = new Date(pDate.setDate(pDate.getDate()) + (bDays * 24 * 60 * 60 * 1000));
+            let originalDate = (pDate.getMonth() + 1) + "/" + pDate.getDate() + "/" + pDate.getFullYear();
+            let formatedDate = (theDate.getMonth() + 1) + "/" + (theDate.getDate()) + "/" + theDate.getFullYear();
+            document.getElementById("rezultat").innerHTML = `${originalDate} --> ${formatedDate}`;
+            console.log(formatedDate);
+            console.log(bDays);
+        }
+        else{
+            
+            document.getElementById("rezultat").innerHTML = "Morate uneti bar dve vrednosti.";
+        }
+        
+    }
+
+
+</script>
+
+</html>
