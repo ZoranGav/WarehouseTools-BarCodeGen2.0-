@@ -23,44 +23,48 @@
             <div>
                 <form class="center-align" action="" method="get">
                     <label for="productionDate">Unesite datum proizvodnje artikla</label><br>
-                    <input type="date" id="productionDate" name="productionDate" >
+                    <input type="date" id="productionDate" name="productionDate">
                     <br>
                     <label for="daysBetween">Unesite dane rocnosti</label><br>
-                    <input type="number" id="daysBetween" name="daysBetween" >
+                    <input type="number" id="daysBetween" name="daysBetween">
                     <br>
                     <label for="endDate">Unesite datum isteka artikla</label><br>
-                    <input type="date" id="endDate" name="endDate" >
+                    <input type="date" id="endDate" name="endDate">
                     <br>
-                    <input class="waves-effect waves-light btn" type="" onclick="myFunction();" name="button" value="Generate">
+                    <input class="waves-effect waves-light btn" type="" onclick="myFunction();" name="button"
+                        value="Generate">
                     <br>
                     <br>
                     <br>
-                    <p class="center-align"><h3 id="brpaleta">Artikal je u roku izmedju datuma:<p id="razlika"></p></h3></p>
+                    <p class="center-align">
+                    <h3 id="brpaleta">Artikal je u roku izmedju datuma:<p id="razlika"></p>
+                    </h3>
+                    </p>
                     <h3 id="rezultat"></h3>
                 </form>
             </div>
         </div>
-    </main> 
+    </main>
 </body>
 
 <script type="text/javascript">
 
-/*DON'T ASK...*/
-function myFunction(){
-    
+    /*DON'T ASK...*/
+    function myFunction() {
+
         let pDate = new Date(document.getElementById("productionDate").value);
         let eDate = new Date(document.getElementById("endDate").value);
         let bDays = document.getElementById("daysBetween").value;
-        
+
         if (!isNaN(pDate) && !isNaN(eDate)) {
 
-            let theDate =  eDate - pDate;
+            let theDate = eDate - pDate;
             let formatedDate = theDate / (1000 * 60 * 60 * 24);
             document.getElementById("brpaleta").innerHTML = `Artikal je ${formatedDate} dana u roku.`;
             console.log(formatedDate);
 
         }
-        else if(!isNaN(bDays) && !isNaN(eDate)){
+        else if (!isNaN(bDays) && !isNaN(eDate)) {
             let theDate = new Date(new Date(eDate) - (bDays * 24 * 60 * 60 * 1000));
             let originalDate = (eDate.getMonth() + 1) + "/" + eDate.getDate() + "/" + eDate.getFullYear();
             let formatedDate = (theDate.getMonth() + 1) + "/" + theDate.getDate() + "/" + theDate.getFullYear();
@@ -75,11 +79,11 @@ function myFunction(){
             console.log(formatedDate);
             console.log(bDays);
         }
-        else{
-            
+        else {
+
             document.getElementById("rezultat").innerHTML = "Morate uneti bar dve vrednosti.";
         }
-        
+
     }
 
 

@@ -25,11 +25,15 @@
                     <label for="palets">Unesite broj zauzetih paletnih mesta za prvi nalog</label><br>
                     <input type="number" id="palets" name="palets" required>
                     <br>
-                    <input class="waves-effect waves-light btn" type="" onclick="myFunction();" name="button" value="Generate">
+                    <input class="waves-effect waves-light btn" type="" onclick="myFunction();" name="button"
+                        value="Generate">
                     <br>
                     <br>
                     <br>
-                    <p class="center-align"><h3 id="brpaleta">Broj slobodnih paletnih mesta za drugi nalog je:<p id="razlika"></p></h3></p>
+                    <p class="center-align">
+                    <h3 id="brpaleta">Broj slobodnih paletnih mesta za drugi nalog je:<p id="razlika"></p>
+                    </h3>
+                    </p>
                 </form>
             </div>
         </div>
@@ -37,15 +41,15 @@
 </body>
 
 <script type="text/javascript">
-/*Subtraction of loaded palets*/
-function myFunction(){
-    
+    /*Subtraction of loaded palets*/
+    function myFunction() {
+
         var a = document.getElementById("palets").value;
         var z = 32 - a;
         document.getElementById("razlika").innerHTML = z;
 
-        
-        
+
+
     }
 
 
