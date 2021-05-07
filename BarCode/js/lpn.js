@@ -4,19 +4,15 @@ window.addEventListener('load', () => {
     /*This .js file and web page are disabled*/
 
     /* Parametars from lpn.html*/
-    var lpnnumber = params.get('lpnnumber');
-    var container = document.getElementById("container");
+    const lpnnumber = params.get('lpnnumber');
+    const container = document.getElementById("container");
 
     if ("last" in localStorage) {
-
         numberOfLotCodes(lpnnumber);
-
     }
     else {
-
         localStorage.setItem('last', 10000001);
         numberOfLotCodes(lpnnumber);
-
     }
 
     /* Formating LPNs */

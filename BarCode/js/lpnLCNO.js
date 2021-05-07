@@ -3,15 +3,16 @@ window.addEventListener('load', () => {
 
 
     /* Parametars from lpnLCBO.html*/
-    var lpnnumber = params.get('lpnnumber');
-    var lpnFrom = params.get('lpnfrom');
-    var container = document.getElementById("container");
+    const lpnnumber = params.get('lpnnumber');
+    const lpnFrom = params.get('lpnfrom');
+    const container = document.getElementById("container");
+    const lpnMask = '90000000';
 
-    /* Formating LPNs */
-    function myLpn(a) {
-        let myString = '90000000';
-        let myString2 = myString.slice(0, -a.length) + a;
-        return myString2;
+
+    if (lpnFrom != 0) {
+
+        numberOfLotCodes(lpnnumber, lpnFrom);
+        console.log(lpnFrom);
 
     }
 
@@ -28,12 +29,11 @@ window.addEventListener('load', () => {
         }
     }
 
-    if (lpnFrom != 0) {
-
-        numberOfLotCodes(lpnnumber, lpnFrom);
-        console.log(lpnFrom);
-
+    /* Formating LPNs */
+    function myLpn(a) {
+        return lpnMask.slice(0, -a.length) + a;
     }
+
 
 
 

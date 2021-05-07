@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+
     /* Parametars from index.html using GET */
     const params = (new URL(document.location)).searchParams;
     const lotcode = params.get('lotcode');
@@ -6,25 +7,8 @@ window.addEventListener('load', () => {
     const expirationdate = params.get('expdate');
     const shiftid = params.get('shiftid');
     const weight = params.get('weight');
+    const lotMask = '500000000000';
 
-    /* Formating date mm/dd/yyyy => yymmdd  */
-    function refractDate(a) {
-        var datefin = a.replaceAll("-", "").substr(2);
-        return datefin;
-    };
-
-    /* Formating weight 1.23 => 123 */
-    function refractWeight(a) {
-        var weightFin = a.replaceAll(".", "");
-        return weightFin;
-    }
-    /* Formating lotcode */
-    function myLot(a) {
-        let myString = '500000000000';
-        let myString2 = myString.slice(0, -a.length) + a;
-        return myString2;
-
-    }
 
     /*Final variables from parameters */
     var finExp = refractDate(expirationdate);
@@ -39,5 +23,19 @@ window.addEventListener('load', () => {
 
 
 
+    /* Formating date mm/dd/yyyy => yymmdd  */
+    function refractDate(a) {
+        return a.replaceAll("-", "").substr(2);
+    };
+
+    /* Formating weight 1.23 => 123 */
+    function refractWeight(a) {
+        return a.replaceAll(".", "");
+    }
+    /* Formating lotcode */
+    function myLot(a) {
+        return lotMask.slice(0, -a.length) + a;
+
+    }
 
 })
