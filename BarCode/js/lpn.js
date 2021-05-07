@@ -1,6 +1,6 @@
 window.addEventListener('load', () => {
     var params = (new URL(document.location)).searchParams;
-    
+
     /*This .js file and web page are disabled*/
 
     /* Parametars from lpn.html*/
@@ -8,7 +8,7 @@ window.addEventListener('load', () => {
     var container = document.getElementById("container");
 
     if ("last" in localStorage) {
-        
+
         numberOfLotCodes(lpnnumber);
 
     }
@@ -20,15 +20,15 @@ window.addEventListener('load', () => {
     }
 
     /* Formating LPNs */
-    function myLpn(a){
+    function myLpn(a) {
         let myString = '90000000';
         let myString2 = myString.slice(0, -a.length) + a;
-            return myString2;
-    
+        return myString2;
+
     }
 
     /* Generating LPNs */
-    function numberOfLotCodes(lpnFromUser){
+    function numberOfLotCodes(lpnFromUser) {
         let lpn = localStorage.getItem('last');
         for (let i = 0; i < lpnFromUser; i++) {
             lpn++;
