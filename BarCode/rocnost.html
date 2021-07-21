@@ -68,6 +68,7 @@
             let theDate = new Date(new Date(eDate) - (bDays * 24 * 60 * 60 * 1000));
             let originalDate = (eDate.getMonth() + 1) + "/" + eDate.getDate() + "/" + eDate.getFullYear();
             let formatedDate = (theDate.getMonth() + 1) + "/" + theDate.getDate() + "/" + theDate.getFullYear();
+            document.getElementById("brpaleta").innerHTML = `Artikal je ${bDays} dana u roku.`;
             document.getElementById("rezultat").innerHTML = `${formatedDate} --> ${originalDate}`;
             console.log(formatedDate);
         }
@@ -75,6 +76,7 @@
             let theDate = new Date(pDate.setDate(pDate.getDate()) + (bDays * 24 * 60 * 60 * 1000));
             let originalDate = (pDate.getMonth() + 1) + "/" + pDate.getDate() + "/" + pDate.getFullYear();
             let formatedDate = (theDate.getMonth() + 1) + "/" + (theDate.getDate()) + "/" + theDate.getFullYear();
+            document.getElementById("brpaleta").innerHTML = `Artikal je ${bDays} dana u roku.`;
             document.getElementById("rezultat").innerHTML = `${originalDate} --> ${formatedDate}`;
             console.log(formatedDate);
             console.log(bDays);
